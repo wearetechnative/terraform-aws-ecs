@@ -89,4 +89,58 @@ To use this module ...
 ```
 
 <!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.22.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_appautoscaling_policy.equinet_app_cpu_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
+| [aws_appautoscaling_policy.equinet_app_memory_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
+| [aws_appautoscaling_target.equinet_app_target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_target) | resource |
+| [aws_cloudwatch_log_group.equinet_app_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_stream.equinet_app_log_stream](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_stream) | resource |
+| [aws_cloudwatch_metric_alarm.equinet_app_cpu_alarm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.equinet_app_memory_alarm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_ecr_repository.equinet_app](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository) | resource |
+| [aws_ecs_service.equinet_app_service](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service) | resource |
+| [aws_ecs_service.hello_world_service](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service) | resource |
+| [aws_ecs_task_definition.equinet_app_task_definition](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) | resource |
+| [aws_ecs_task_definition.hello_world_task_definition](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region to use | `string` | `"us-east-1"` | no |
+| <a name="input_equinet_app_cpu_scale_up"></a> [equinet\_app\_cpu\_scale\_up](#input\_equinet\_app\_cpu\_scale\_up) | The CPU utilization threshold to trigger a scale up event | `number` | `80` | no |
+| <a name="input_equinet_app_cpu_target_value"></a> [equinet\_app\_cpu\_target\_value](#input\_equinet\_app\_cpu\_target\_value) | The target value for the CPU utilization auto scaling policy | `number` | `50` | no |
+| <a name="input_equinet_app_max_capacity"></a> [equinet\_app\_max\_capacity](#input\_equinet\_app\_max\_capacity) | The maximum capacity for the Rails app auto scaling target | `number` | `5` | no |
+| <a name="input_equinet_app_memory_scale_up"></a> [equinet\_app\_memory\_scale\_up](#input\_equinet\_app\_memory\_scale\_up) | The memory utilization threshold to trigger a scale up event | `number` | `80` | no |
+| <a name="input_equinet_app_memory_target_value"></a> [equinet\_app\_memory\_target\_value](#input\_equinet\_app\_memory\_target\_value) | The target value for the memory utilization auto scaling policy | `number` | `50` | no |
+| <a name="input_equinet_app_min_capacity"></a> [equinet\_app\_min\_capacity](#input\_equinet\_app\_min\_capacity) | The minimum capacity for the Rails app auto scaling target | `number` | `1` | no |
+| <a name="input_equinet_app_port"></a> [equinet\_app\_port](#input\_equinet\_app\_port) | The port to use for the Rails app | `number` | `80` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_equinet_app_cpu_alarm_arn"></a> [equinet\_app\_cpu\_alarm\_arn](#output\_equinet\_app\_cpu\_alarm\_arn) | The ARN of the CPU utilization CloudWatch alarm for the Rails app |
+| <a name="output_equinet_app_ecr_repository_url"></a> [equinet\_app\_ecr\_repository\_url](#output\_equinet\_app\_ecr\_repository\_url) | n/a |
+| <a name="output_equinet_app_memory_alarm_arn"></a> [equinet\_app\_memory\_alarm\_arn](#output\_equinet\_app\_memory\_alarm\_arn) | The ARN of the memory utilization CloudWatch alarm for the Rails app |
+| <a name="output_equinet_app_service_arn"></a> [equinet\_app\_service\_arn](#output\_equinet\_app\_service\_arn) | The ARN of the Rails app service |
+| <a name="output_equinet_app_service_desired_count"></a> [equinet\_app\_service\_desired\_count](#output\_equinet\_app\_service\_desired\_count) | The desired count of tasks for the Rails app service |
+| <a name="output_equinet_app_service_name"></a> [equinet\_app\_service\_name](#output\_equinet\_app\_service\_name) | The name of the Rails app service |
+| <a name="output_equinet_app_service_pending_count"></a> [equinet\_app\_service\_pending\_count](#output\_equinet\_app\_service\_pending\_count) | The pending count of tasks for the Rails app service |
+| <a name="output_equinet_app_service_running_count"></a> [equinet\_app\_service\_running\_count](#output\_equinet\_app\_service\_running\_count) | The running count of tasks for the Rails app service |
+| <a name="output_equinet_app_task_definition_arn"></a> [equinet\_app\_task\_definition\_arn](#output\_equinet\_app\_task\_definition\_arn) | The ARN of the Rails app task definition |
+| <a name="output_equinet_app_url"></a> [equinet\_app\_url](#output\_equinet\_app\_url) | The URL of the Rails app load balancer |
 <!-- END_TF_DOCS -->
