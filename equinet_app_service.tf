@@ -15,4 +15,10 @@ resource "aws_ecs_service" "equinet_app_service" {
     security_groups = [module.network.default_security_group_id]
     subnets         = module.network.private_subnets
   }
+
+  load_balancer {
+  target_group_arn = aws_lb_target_group.equinet_app_target_group.arn
+  container_name   = "equinet-app-container"
+  container_port   = var.equinet_app_port
+}
 }
