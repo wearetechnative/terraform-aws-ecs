@@ -95,7 +95,12 @@ No providers.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_ecs_account_settings"></a> [ecs\_account\_settings](#module\_ecs\_account\_settings) | ./ecs_account_settings | n/a |
+| <a name="module_ecs_cluster"></a> [ecs\_cluster](#module\_ecs\_cluster) | ./ecs_clster/ | n/a |
+| <a name="module_ecs_default_service_linked_role"></a> [ecs\_default\_service\_linked\_role](#module\_ecs\_default\_service\_linked\_role) | ./ecs_default_service_linked_role | n/a |
+| <a name="module_ecs_fargate_capacity_provider"></a> [ecs\_fargate\_capacity\_provider](#module\_ecs\_fargate\_capacity\_provider) | ./ecs_fargate_capacity_provider | n/a |
 
 ## Resources
 
@@ -107,5 +112,9 @@ No inputs.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_capacity_provider_name"></a> [capacity\_provider\_name](#output\_capacity\_provider\_name) | n/a |
+| <a name="output_ec2_instance_role_ecs_policy"></a> [ec2\_instance\_role\_ecs\_policy](#output\_ec2\_instance\_role\_ecs\_policy) | n/a |
+| <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | n/a |
 <!-- END_TF_DOCS -->
