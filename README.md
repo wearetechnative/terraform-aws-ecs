@@ -101,8 +101,6 @@ No providers.
 | <a name="module_ecs_cluster"></a> [ecs\_cluster](#module\_ecs\_cluster) | ./ecs_cluster/ | n/a |
 | <a name="module_ecs_default_service_linked_role"></a> [ecs\_default\_service\_linked\_role](#module\_ecs\_default\_service\_linked\_role) | ./ecs_default_service_linked_role | n/a |
 | <a name="module_ecs_fargate_capacity_provider"></a> [ecs\_fargate\_capacity\_provider](#module\_ecs\_fargate\_capacity\_provider) | ./ecs_fargate_capacity_provider | n/a |
-| <a name="module_ecs_service"></a> [ecs\_service](#module\_ecs\_service) | ./ecs_service | n/a |
-| <a name="module_ecs_task_definition"></a> [ecs\_task\_definition](#module\_ecs\_task\_definition) | ./ecs_task_definition | n/a |
 
 ## Resources
 
