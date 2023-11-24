@@ -14,6 +14,7 @@ resource "aws_ecs_task_definition" "this" {
     , [ { "name": "AWS_DEFAULT_REGION", "value": data.aws_region.current.name } ]))
     linux_capabilities    = jsonencode(var.linux_capabilities)
     linux_expose_devices  = jsonencode([for v in var.linux_expose_devices : { "hostPath" : "${v}", "containerPath" : "${v}", "permissions" : ["read", "write"] }])
+    entrypoint_command = var.entrypoint_command != null ? var.entrypoint_command : ""
     healthcheck_command = var.healthcheck_command != null ? var.healthcheck_command : ""
     cpu_units = var.task_cpu_units
     memory_units = var.task_memory_units

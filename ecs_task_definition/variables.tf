@@ -91,6 +91,12 @@ variable "load_balancer_config" {
   default = {}
 }
 
+variable "entrypoint_command" {
+  description = "If set then will use a command to override the image entrypoint command"
+  type = string
+  default = null
+}
+
 variable "healthcheck_command" {
   description = "If set then will use a command to check the container health."
   type = string

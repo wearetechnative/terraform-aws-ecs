@@ -18,6 +18,12 @@ variable "force_new_deployment" {
   type        = bool
 }
 
+variable "min_number_of_tasks" {
+  description = "Initial task amount is set to 0."
+  type        = number
+  default     = 0
+}
+
 variable "max_number_of_tasks" {
   description = "Initial task amount is set to 0. Set to >1 for autoscaling and use this value as a maximum. Use 0 or 1 to disable autoscaling and handle the amount of pods in the web console."
   type        = number
@@ -92,6 +98,12 @@ variable "task_definition_environment_variables" {
   }))
 
   default = []
+}
+
+variable "task_definition_command" {
+  description = "overriding entry point command, skip to use image default command."
+  type = string
+  default = null
 }
 
 variable "scheduling_strategy" {

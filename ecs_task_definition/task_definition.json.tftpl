@@ -21,6 +21,9 @@
     "memory": ${memory_units},
     "mountPoints": [],
     "volumesFrom": [],
+    %{ if entrypoint_command != "" }
+      "command": ["${entrypoint_command}"],
+    %{ endif }
     "linuxParameters": {
       "capabilities": {
         "add": ${linux_capabilities}
