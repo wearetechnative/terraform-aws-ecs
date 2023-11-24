@@ -1,0 +1,42 @@
+[
+  {
+    "name": "application",
+    "image": "${image_ref}:${image_version}",
+    "compatibilities": ${compatibilities},
+    "secrets": ${secrets},
+    "essential": true,
+    "portMappings": ${port_mappings},
+    "environment": ${environment_variables},
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${cloudwatch_group_name}",
+        "awslogs-region": "${aws_region}",
+        "awslogs-stream-prefix": "ecs",
+        "mode": "non-blocking",
+        "max-buffer-size": "1m"
+      }
+    },
+    "cpu": ${cpu_units},
+    "memory": ${memory_units},
+    "mountPoints": [],
+    "volumesFrom": [],
+    "linuxParameters": {
+      "capabilities": {
+        "add": ${linux_capabilities}
+      },
+      "devices": ${linux_expose_devices}
+    }
+    %{ if healthcheck_command != "" }
+    , "healthCheck": {
+      "retries": 2,
+      "command": [
+        "CMD-SHELL", "${healthcheck_command}"
+      ],
+      "timeout": 5,
+      "interval": 10,
+      "startPeriod": 300
+    }
+    %{ endif }
+  }
+]
