@@ -101,11 +101,16 @@ variable "task_definition_environment_variables" {
 }
 
 variable "task_definition_command" {
-  description = "overriding entry point command, skip to use image default command."
-  type = string
-  default = null
+  description = "overriding docker command, skip to use image default command."
+  type = list(string)
+  default = []
 }
 
+variable "desired_count" {
+  description = "Desired count of instances to start."
+  type        = number
+  default     = 0
+}
 variable "scheduling_strategy" {
   description = "ECS scheduling strategy to use."
   type        = string

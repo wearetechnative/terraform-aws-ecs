@@ -10,7 +10,7 @@ module "task_definition" {
   cloudwatch_group_name = var.cloudwatch_group_name
   task_definition_secrets = var.task_definition_secrets
   task_definition_environment_variables = var.task_definition_environment_variables
-  entrypoint_command = var.task_definition_command
+  command = var.task_definition_command
   linux_capabilities = var.linux_capabilities
   linux_expose_devices = var.linux_expose_devices
   healthcheck_command = var.healthcheck_command

@@ -91,10 +91,10 @@ variable "load_balancer_config" {
   default = {}
 }
 
-variable "entrypoint_command" {
-  description = "If set then will use a command to override the image entrypoint command"
-  type = string
-  default = null
+variable "command" {
+  description = "If set then will use a command to override the image command. Format as list with command arguments. E.g. [\"bundle\", \"exec\", \"rails\", \"s\"]"
+  type = list(string)
+  default = []
 }
 
 variable "healthcheck_command" {

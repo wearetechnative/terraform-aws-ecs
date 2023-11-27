@@ -28,7 +28,7 @@ resource "aws_ecs_service" "this" {
   deployment_maximum_percent         = 200 # be fast
   deployment_minimum_healthy_percent = 100 # be robuust
 
-  desired_count           = 0
+  desired_count           = var.desired_count
   enable_ecs_managed_tags = true
   enable_execute_command  = true
 
@@ -89,7 +89,7 @@ resource "aws_ecs_service" "this" {
 
   tags = var.tags
 
-  lifecycle {
-    ignore_changes = [desired_count]
-  }
+  #lifecycle {
+  #  ignore_changes = [desired_count]
+  #}
 }
