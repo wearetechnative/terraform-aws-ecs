@@ -3,6 +3,12 @@ variable "name" {
   type        = string
 }
 
+variable "container_name" {
+  description = "Unique name for the task container."
+  type        = string
+  default     = "application"
+}
+
 variable "use_fargate" {
   description = "Enable Fargate containers."
   type = bool

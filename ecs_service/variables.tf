@@ -3,6 +3,12 @@ variable "name" {
   type        = string
 }
 
+variable "container_name" {
+  description = "Unique name for the container."
+  type        = string
+  default     = "application"
+}
+
 variable "capacity_provider_name" {
   description = "Capacity provider name which is always required if var.scheduling_strategy is set to REPLICA."
   type        = string

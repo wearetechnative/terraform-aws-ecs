@@ -1,7 +1,7 @@
 resource "aws_ecs_task_definition" "this" {
   family = var.name
   container_definitions = templatefile("${path.module}/task_definition.json.tftpl", {
-    name                  = var.name
+    name                  = var.container_name
     image_ref             = var.docker_image_url
     image_version         = var.docker_image_tag
     compatibilities       = jsonencode(local.compatibilities)

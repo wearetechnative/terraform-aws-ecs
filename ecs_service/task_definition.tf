@@ -2,6 +2,7 @@ module "task_definition" {
   source = "../ecs_task_definition"
 
   name = "${split("cluster/", data.aws_arn.ecs_cluster.resource)[1]}_${var.name}"
+  container_name = var.container_name
   use_fargate = local.use_fargate
 
   docker_image_url = var.docker_image_url

@@ -44,7 +44,7 @@ resource "aws_ecs_service" "this" {
 
     content {
       target_group_arn = load_balancer.value.target_group_arn
-      container_name   = "application" # load_balancer.value.container_name != null ? load_balancer.value.container_name : var.name
+      container_name   = load_balancer.value.container_name != null ? load_balancer.value.container_name : var.name
       container_port   = load_balancer.value.container_port
     }
   }
