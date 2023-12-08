@@ -74,6 +74,11 @@ variable "task_definition_secrets" {
   default = []
 }
 
+variable "task_definition_command" {
+  description = "overriding docker command, skip to use image default command."
+  type = list(string)
+  default = []
+}
 variable "task_definition_environment_variables" {
   description = "Map of nonsecret environment variables with the value of an SSM parameter where this value is stored."
   type = list(object({
