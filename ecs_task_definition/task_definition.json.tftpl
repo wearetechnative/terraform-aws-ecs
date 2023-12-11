@@ -25,6 +25,7 @@
     "command": ${jsonencode([for cmd_comp in command : "${cmd_comp}"])},
     %{ endif }
     "linuxParameters": {
+      "InitProcessEnabled": true,
       "capabilities": {
         "add": ${linux_capabilities}
       },
