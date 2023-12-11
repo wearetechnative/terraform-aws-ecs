@@ -10,10 +10,12 @@ data "aws_iam_policy_document" "ssm_session" {
   statement {
     sid = "SSMSessionExecuteCommand"
 
-    actions = ["ssmmessages:CreateControlChannel",
+    actions = [
+      "ssmmessages:CreateControlChannel",
       "ssmmessages:CreateDataChannel",
       "ssmmessages:OpenControlChannel",
-    "ssmmessages:OpenDataChannel"]
+      "ssmmessages:OpenDataChannel"
+    ]
 
     resources = ["*"]
   }
