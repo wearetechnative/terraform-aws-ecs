@@ -22,4 +22,5 @@ module "task_definition" {
   task_role_arn = var.task_role_arn
 
   tags = var.tags
+  extra_container_def_string = var.extra_container_def_string
 }

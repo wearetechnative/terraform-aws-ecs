@@ -43,4 +43,7 @@
     }
     %{ endif }
   }
+  %{ if extra_container_def_string != "" }
+  ,${extra_container_def_string}
+  %{ endif }
 ]

@@ -199,3 +199,7 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "extra_container_def_string" {
+  default = ""
+}
