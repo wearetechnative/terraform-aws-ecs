@@ -203,3 +203,23 @@ variable "tags" {
 variable "extra_container_def_string" {
   default = ""
 }
+
+variable "scaling_up_low" {
+  description = "Number of tasks to scale up by when lower bound is reached"
+  default = 3
+}
+
+variable "scaling_up_high" {
+  description = "Number of tasks to scale up by when upper bound is reached"
+  default = 5
+}
+
+variable "scaling_down_low" {
+  description = "Number of tasks to scale down by when lower bound is reached"
+  default = -1
+}
+
+variable "scaling_down_high" {
+  description = "Number of tasks to scale down by when upper bound is reached"
+  default = -3
+}

@@ -11,3 +11,19 @@ variable "scale_target_max_capacity" {
   default     = 5
   type        = number
 }
+
+variable "scaling_up_low" {
+  description = "Number of tasks to scale up by when lower bound is reached"
+}
+
+variable "scaling_up_high" {
+  description = "Number of tasks to scale up by when upper bound is reached"
+}
+
+variable "scaling_down_low" {
+  description = "Number of tasks to scale down by when lower bound is reached"
+}
+
+variable "scaling_down_high" {
+  description = "Number of tasks to scale down by when upper bound is reached"
+}
