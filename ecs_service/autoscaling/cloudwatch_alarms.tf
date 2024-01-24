@@ -7,6 +7,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   period              = 60
   statistic           = "Maximum"
   threshold           = 50
+  alarm_description   = "P4"
 
   dimensions = {
     ClusterName = var.ecs_cluster_name
@@ -25,6 +26,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_low" {
   period              = 60
   statistic           = "Maximum"
   threshold           = 20
+  alarm_description   = "P4"
 
   dimensions = {
     ClusterName = var.ecs_cluster_name
