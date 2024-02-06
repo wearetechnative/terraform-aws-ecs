@@ -204,6 +204,7 @@ variable "extra_container_def_string" {
   default = ""
 }
 
+
 variable "scaling_up_low" {
   description = "Number of tasks to scale up by when lower bound is reached"
   default = 3
@@ -222,4 +223,13 @@ variable "scaling_down_low" {
 variable "scaling_down_high" {
   description = "Number of tasks to scale down by when upper bound is reached"
   default = -3
+}
+
+variable "threshold_cpu_high" {
+  description = "Theshold for cpu high alarm which will trigger upscaling"
+  default = 50  
+}
+variable "threshold_cpu_low" {
+  description = "Theshold for cpu low alarm which will trigger downscaling"
+  default = 20  
 }

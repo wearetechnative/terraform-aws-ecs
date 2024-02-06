@@ -6,7 +6,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   namespace           = "AWS/ECS"
   period              = 60
   statistic           = "Maximum"
-  threshold           = 50
+  threshold           = var.threshold_cpu_high
   alarm_description   = "P4"
 
   dimensions = {
@@ -25,7 +25,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_low" {
   namespace           = "AWS/ECS"
   period              = 60
   statistic           = "Maximum"
-  threshold           = 20
+  threshold           = var.threshold_cpu_low
   alarm_description   = "P4"
 
   dimensions = {

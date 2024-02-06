@@ -27,3 +27,11 @@ variable "scaling_down_low" {
 variable "scaling_down_high" {
   description = "Number of tasks to scale down by when upper bound is reached"
 }
+
+variable "threshold_cpu_high" {
+  description = "Theshold for cpu high alarm which will trigger upscaling"  
+}
+
+variable "threshold_cpu_low" {
+  description = "Theshold for cpu low alarm which will trigger downscaling"  
+}

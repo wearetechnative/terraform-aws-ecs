@@ -11,5 +11,7 @@ module "autoscaling" {
   scaling_up_high   = var.scaling_up_high
   scaling_down_low  = var.scaling_down_low
   scaling_down_high = var.scaling_down_high
+  threshold_cpu_high = var.threshold_cpu_high
+  threshold_cpu_low = var.threshold_cpu_low
 
 }
