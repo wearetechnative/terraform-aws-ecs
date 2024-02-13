@@ -13,13 +13,13 @@ resource "aws_appautoscaling_policy" "scale_up_policy" {
     step_adjustment {
       metric_interval_lower_bound = null
       metric_interval_upper_bound = 10
-      scaling_adjustment          = 3 # aggressive / fast scale up
+      scaling_adjustment          = var.scaling_up_low
     }
 
     step_adjustment {
       metric_interval_lower_bound = 10
       metric_interval_upper_bound = null
-      scaling_adjustment          = 5 # aggressive / fast scale up
+      scaling_adjustment          = var.scaling_up_high
     }
   }
 
@@ -39,15 +39,15 @@ resource "aws_appautoscaling_policy" "scale_down_policy" {
     metric_aggregation_type = "Average" # slow scale down
 
     step_adjustment {
-      metric_interval_lower_bound = null
-      metric_interval_upper_bound = -10
-      scaling_adjustment          = -3 # faster scale down
+      metric_interval_lower_bound = -10
+      metric_interval_upper_bound = null
+      scaling_adjustment          = var.scaling_down_low
     }
 
     step_adjustment {
-      metric_interval_lower_bound = -10
-      metric_interval_upper_bound = null
-      scaling_adjustment          = -1 # slow scale down
+      metric_interval_lower_bound = null
+      metric_interval_upper_bound = -10
+      scaling_adjustment          = var.scaling_down_high
     }
   }
 
