@@ -7,7 +7,7 @@ resource "aws_appautoscaling_policy" "scale_up_policy" {
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
-    cooldown                = 300 # aggressive / fast scale up
+    cooldown                = var.scaling_up_cooldown
     metric_aggregation_type = "Maximum" # aggressive / fast scale up
 
     step_adjustment {
@@ -35,7 +35,7 @@ resource "aws_appautoscaling_policy" "scale_down_policy" {
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
-    cooldown                = 900 # slow scale down
+    cooldown                = var.scaling_down_cooldown
     metric_aggregation_type = "Average" # slow scale down
 
     step_adjustment {

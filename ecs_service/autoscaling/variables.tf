@@ -35,3 +35,11 @@ variable "threshold_cpu_high" {
 variable "threshold_cpu_low" {
   description = "Theshold for cpu low alarm which will trigger downscaling"  
 }
+
+variable "scaling_up_cooldown" {
+  description = "Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start when scaling up (agressiveness)"
+}
+
+variable "scaling_down_cooldown" {
+  description = "Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start when scaling down (agressiveness)"
+}

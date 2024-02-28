@@ -13,5 +13,7 @@ module "autoscaling" {
   scaling_down_high = var.scaling_down_high
   threshold_cpu_high = var.threshold_cpu_high
   threshold_cpu_low = var.threshold_cpu_low
+  scaling_up_cooldown = var.scaling_up_cooldown
+  scaling_down_cooldown = var.scaling_down_cooldown
 
 }
