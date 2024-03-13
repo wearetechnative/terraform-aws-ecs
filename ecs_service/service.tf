@@ -89,9 +89,9 @@ resource "aws_ecs_service" "this" {
 
   tags = var.tags
 
-  lifecycle {
-    ignore_changes = [
-      task_definition
-    ]
-  }
+  #lifecycle {
+  #  ignore_changes = [
+  #    task_definition
+  #  ]
+  #}
 }
