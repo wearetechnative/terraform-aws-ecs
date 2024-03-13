@@ -19,6 +19,8 @@ resource "aws_ecs_task_definition" "this" {
     cpu_units = var.task_cpu_units
     memory_units = var.task_memory_units
     extra_container_def_string = var.extra_container_def_string
+    systemControls   = []
+
   })
 
   cpu                = var.task_cpu_units
