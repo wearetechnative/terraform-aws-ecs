@@ -13,3 +13,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "container_insights" {
+  description = "Enable container insights."
+  type        = string
+  default     = "enabled"
+}
