@@ -190,7 +190,7 @@ variable "load_balancer_config" {
 
 variable "healthcheck_command" {
   description = "If set then will use a command to check the container health."
-  type = string
+  type = list(string)
   default = null
 }
 
