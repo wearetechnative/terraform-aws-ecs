@@ -1,4 +1,4 @@
-# Terraform AWS ECS ![](https://img.shields.io/github/actions/workflow/status/wearetechnative/terraform-aws-ecs/tflint.yaml?style=plastic)
+# Terraform AWS ECS ![](https://img.shields.io/github/actions/workflow/status/wearetechnative/terraform-aws-ecs/tflint.yaml?branch=main&style=plastic)
 
 <!-- SHIELDS -->
 
