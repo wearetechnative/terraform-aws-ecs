@@ -24,12 +24,6 @@ variable "force_new_deployment" {
   type        = bool
 }
 
-variable "min_number_of_tasks" {
-  description = "Initial task amount is set to 0."
-  type        = number
-  default     = 0
-}
-
 variable "max_number_of_tasks" {
   description = "Initial task amount is set to 0. Set to >1 for autoscaling and use this value as a maximum. Use 0 or 1 to disable autoscaling and handle the amount of pods in the web console."
   type        = number
@@ -108,8 +102,8 @@ variable "task_definition_environment_variables" {
 
 variable "task_definition_command" {
   description = "overriding docker command, skip to use image default command."
-  type = list(string)
-  default = []
+  type        = list(string)
+  default     = []
 }
 
 variable "desired_count" {
@@ -174,24 +168,24 @@ EOT
 
 variable "disovery_service_name_override" {
   description = "If var.discovery_service_namespace_id is set then the servicename is equal to the application name if this value is not set. Otherwise this value prevails."
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "load_balancer_config" {
   description = "Load balancer configuration for target groups. Container_name is optional and will be overwritten by var.name if not specified."
   type = map(object({
     target_group_arn = string
-    container_port = number
-    container_name = string
+    container_port   = number
+    container_name   = string
   }))
   default = {}
 }
 
 variable "healthcheck_command" {
   description = "If set then will use a command to check the container health."
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "tags" {
@@ -201,45 +195,54 @@ variable "tags" {
 }
 
 variable "extra_container_def_string" {
+  type        = string
   default = ""
 }
 
 
 variable "scaling_up_low" {
   description = "Number of tasks to scale up by when lower bound is reached"
-  default = 3
+  type        = number
+  default     = 3
 }
 
 variable "scaling_up_high" {
   description = "Number of tasks to scale up by when upper bound is reached"
-  default = 5
+  type        = number
+  default     = 5
 }
 
 variable "scaling_down_low" {
   description = "Number of tasks to scale down by when lower bound is reached"
-  default = -1
+  type        = number
+  default     = -1
 }
 
 variable "scaling_down_high" {
   description = "Number of tasks to scale down by when upper bound is reached"
-  default = -3
+  type        = number
+  default     = -3
 }
 
 variable "threshold_cpu_high" {
   description = "Theshold for cpu high alarm which will trigger upscaling"
-  default = 50  
+  type        = number
+  default     = 50
 }
 variable "threshold_cpu_low" {
   description = "Theshold for cpu low alarm which will trigger downscaling"
-  default = 20  
+  type        = number
+  default     = 20
 }
 
 variable "scaling_up_cooldown" {
   description = "Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start when scaling up (agressiveness)"
-  default = 300
+  type        = number
+  default     = 300
 }
 
 variable "scaling_down_cooldown" {
   description = "Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start when scaling down (agressiveness)"
-  default = 900
+  type        = number
+  default     = 900
 }

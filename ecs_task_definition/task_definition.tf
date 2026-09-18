@@ -5,21 +5,21 @@ resource "aws_ecs_task_definition" "this" {
     image_ref             = var.docker_image_url
     image_version         = var.docker_image_tag
     compatibilities       = jsonencode(local.compatibilities)
-    port_mappings         = jsonencode(distinct([ for k, v in var.load_balancer_config : { "hostPort": local.network_mode == "bridge" ? 0 : v.container_port, "containerPort": v.container_port, "protocol": "tcp" } ]))
+    port_mappings         = jsonencode(distinct([for k, v in var.load_balancer_config : { "hostPort" : local.network_mode == "bridge" ? 0 : v.container_port, "containerPort" : v.container_port, "protocol" : "tcp" }]))
     cloudwatch_group_name = var.cloudwatch_group_name
     aws_region            = data.aws_region.current.name
     secrets               = jsonencode(var.task_definition_secrets)
     environment_variables = jsonencode(concat(var.task_definition_environment_variables
-    # allow AWS CLI to work out of the box, mind boggling isn't it? :)
-    , [ { "name": "AWS_DEFAULT_REGION", "value": data.aws_region.current.name } ]))
-    linux_capabilities    = jsonencode(var.linux_capabilities)
-    linux_expose_devices  = jsonencode([for v in var.linux_expose_devices : { "hostPath" : "${v}", "containerPath" : "${v}", "permissions" : ["read", "write"] }])
-    command = var.command
-    healthcheck_command = var.healthcheck_command != null ? var.healthcheck_command : ""
-    cpu_units = var.task_cpu_units
-    memory_units = var.task_memory_units
+      # allow AWS CLI to work out of the box, mind boggling isn't it? :)
+    , [{ "name" : "AWS_DEFAULT_REGION", "value" : data.aws_region.current.name }]))
+    linux_capabilities         = jsonencode(var.linux_capabilities)
+    linux_expose_devices       = jsonencode([for v in var.linux_expose_devices : { "hostPath" : v, "containerPath" : v, "permissions" : ["read", "write"] }])
+    command                    = var.command
+    healthcheck_command        = var.healthcheck_command != null ? var.healthcheck_command : ""
+    cpu_units                  = var.task_cpu_units
+    memory_units               = var.task_memory_units
     extra_container_def_string = var.extra_container_def_string
-    systemControls   = []
+    systemControls             = []
 
   })
 
