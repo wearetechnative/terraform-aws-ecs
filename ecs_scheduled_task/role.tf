@@ -1,5 +1,5 @@
 module "eventbridge_role" {
-  source = "git@github.com:TechNative-B-V/modules-aws.git//identity_and_access_management/iam_role?ref=e3c1a1f94ffa77c5f787d44ec98e2028c824220a"
+  source = "git::https://github.com/wearetechnative/terraform-aws-iam-role.git?ref=0fe916c27097706237692122e09f323f55e8237e"
 
   role_name = "${split("cluster/", data.aws_arn.ecs_cluster.resource)[1]}_${var.name}_scheduled_task_role"
   role_path = "/ecs/${split("cluster/", data.aws_arn.ecs_cluster.resource)[1]}/scheduled_task/"

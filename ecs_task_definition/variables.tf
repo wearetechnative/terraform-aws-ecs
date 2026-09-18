@@ -116,5 +116,6 @@ variable "tags" {
 }
 
 variable "extra_container_def_string" {
+  type        = string
   default     = ""
 }
